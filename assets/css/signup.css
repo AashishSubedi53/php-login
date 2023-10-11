@@ -1,0 +1,74 @@
+/* Reset some default browser styles */
+body, h1, form {
+    margin: 0;
+    padding: 0;
+    background-image: url(../imgs/signup-background.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+h1{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Basic styling for the container */
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    /* padding: 30px; */
+    /* border:1px solid black; */
+    
+    
+}
+
+/* Center the form elements and give them some spacing */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Style form labels */
+label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Style input fields */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+    width: 93%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 40%;
+    
+}
+
+/* Change button color on hover */
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#login{
+    text-decoration: none;
+    color: aqua;
+}
+
+
+
+

@@ -1,0 +1,14 @@
+{
+    "name": "asis/oop-project",
+    "autoload": {
+        "psr-4": {
+            "Asis\\OopProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "asis"
+        }
+    ],
+    "require": {}
+}

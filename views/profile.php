@@ -26,13 +26,15 @@ $users = $user->all($email);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/profile.css">
-    <title>Profile</title>
+    <title>Profile Page</title>
 </head>
+
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -43,9 +45,10 @@ $users = $user->all($email);
                         <hr>
                         <?php foreach($users as $user){ ?>
                         <div class="text-center">
-                            <img src="<?php echo $user['profile_image_url']; ?>" alt="Profile Image" class="rounded-circle img-thumbnail" width="150">
+                            <img src="<?php echo $user['profile_image_url']; ?>" alt="Profile Image"
+                                class="rounded-circle img-thumbnail" width="150">
                         </div>
-                        
+
                         <div class="text-center mt-3">
                             <h4><?php echo $user['name']; ?></h4>
                             <p><?php echo $user['email']; ?></p>
@@ -53,17 +56,19 @@ $users = $user->all($email);
                         <div class="mt-4">
                             <h5>User Information</h5>
                             <ul class="list-group">
-                            
+
                                 <li class="list-group-item"><strong>Name:</strong> <?php echo $user['name']; ?></li>
                                 <li class="list-group-item"><strong>Email:</strong> <?php echo $user['email']; ?></li>
 
                                 <li class="list-group-item"><strong>Age:</strong> <?php echo $user['age']; ?></li>
-                                <li class="list-group-item"><strong>Address:</strong> <?php echo $user['address']; ?></li>
-                                <li class="list-group-item"><strong>Gender:</strong> <?php echo $user['gender'] ? 'Male' : 'Female'; ?></li>
+                                <li class="list-group-item"><strong>Address:</strong> <?php echo $user['address']; ?>
+                                </li>
+                                <li class="list-group-item"><strong>Gender:</strong>
+                                    <?php echo $user['gender'] ? 'Male' : 'Female'; ?></li>
 
 
                             </ul>
-                        <?php }?>
+                            <?php }?>
                         </div>
                     </div>
                 </div>
@@ -77,4 +82,5 @@ $users = $user->all($email);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

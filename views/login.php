@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <h1>Login</h1>
+        <h1>Login Page</h1>
         <form class="login" action="../src/Controller/web.php" method='POST'>
             <div class="form-group">
                 <label for="email">Email</label>

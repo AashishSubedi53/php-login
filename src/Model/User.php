@@ -8,6 +8,7 @@ class User extends DatabaseConnection{
     public $name;
     public $age;
     public $address;
+    public $image;
     public $email;
     public $gender;
     public $password;
@@ -24,6 +25,20 @@ class User extends DatabaseConnection{
         }
 
         return $users;
+    }
+
+    public function updateUser($id,$name, $age, $address, $image, $email, $gender, $password){
+        $sql = "UPDATE users SET name='$name', age='$age', address='$address',
+        image='$image', email='$email', gender='$gender', password='$password' WHERE id='$id' ";
+
+        $result = mysqli_query($this->connection(), $sql);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+
+
     }
 
 

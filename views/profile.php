@@ -1,15 +1,25 @@
 <?php
-
+session_start();
 require '../vendor/autoload.php';
 
 use Asis\OopProject\Model\User;
 use Asis\OopProject\Controller\LoginController;
 
-if ($_GET) {
-    if (isset($_GET["e"])) {
-        $encodedEmail = $_GET["e"];
 
-        $email = base64_decode($encodedEmail);
+// if ($_GET) {
+//     if (isset($_GET["e"])) {
+//         $encodedEmail = $_GET["e"];
+
+//         $email = base64_decode($encodedEmail);
+//     }
+// }
+
+
+
+if($_SESSION){
+    if(isset($_SESSION['email'])){
+        $email = $_SESSION['email'];
+        
     }
 }
 
@@ -17,11 +27,6 @@ if ($_GET) {
 
 $user = new User();
 $users = $user->all($email);
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +51,9 @@ $users = $user->all($email);
                         <hr>
                         <?php foreach ($users as $user) { ?>
                             <div class="text-center">
-                                <img src="<?php echo $user['profile_image_url']; ?>" alt="Profile Image" class="rounded-circle img-thumbnail" width="150">
+                                
+                                <img src="<?php echo  $user['image']; ?>" alt="image" class="img-fluid">
+                                
                             </div>
 
                             <div class="text-center mt-3">
@@ -64,7 +71,7 @@ $users = $user->all($email);
                                     <li class="list-group-item"><strong>Address:</strong> <?php echo $user['address']; ?>
                                     </li>
                                     <li class="list-group-item"><strong>Gender:</strong>
-                                        <?php echo $user['gender'] ? 'Male' : 'Female'; ?></li>
+                                        <?php echo $user['gender'] ? 'Female' : 'Male'; ?></li>
 
 
                                 </ul>
@@ -74,9 +81,14 @@ $users = $user->all($email);
                 </div>
             </div>
         </div>
-        <button><a href="../src/Controller/editProfile.php" class="edit-btn">Edit</a>
+        <button><a href="editProfile.php" class="edit-btn">Edit</a>
         </button>
+
     </div>
+
+    <form action="profile.php" method="post">
+        <input type="submit" name="logout" value="Logout">
+    </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -84,3 +96,19 @@ $users = $user->all($email);
 </body>
 
 </html>
+
+<?php
+
+if($_POST){
+    if(isset($_POST['logout'])){
+        session_unset();
+        session_destroy();
+        header('Location: login.php');
+    }
+}
+
+if(empty($_SESSION['email'])){
+    header('Location: login.php');
+}
+
+?>

@@ -37,6 +37,9 @@ class LoginController {
             //var_dump([$hashed_password, $loginController->LoginUser($email)]);
             // if(password_verify($hashed_password, $loginController->LoginUser($email))){
             if($hashed_password == $db_password){
+                session_start();
+                $_SESSION['logged_in'] = true;
+                $_SESSION["email"] = $_POST['email'];
                 header("Location: ../../views/profile.php");
                 // echo $this->email;
     

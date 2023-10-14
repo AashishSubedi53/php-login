@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Register Now</h1>
-        <form class="sign-up" action="../src/Controller/web.php" method="POST">
+        <form class="sign-up" action="../src/Controller/web.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name">
@@ -37,6 +37,11 @@
                 <input type="radio" value="Male" name="gender-select">Male
 
                 <input type="radio" value="female" name="gender-select">Female
+            </div>
+
+            <div class="form-group">
+                <label for="image">Profile Image:</label>
+                <input type="file" id="image" name="image">
             </div>
 
 

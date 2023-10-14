@@ -1,22 +1,27 @@
 <?php
-namespace Asis\OopProject\Controller;
 
+namespace Asis\OopProject\Controller;
 use Asis\OopProject\Database\DatabaseConnection;
+use Asis\OopProject\Model\User;
 use Exception;
 
-class SignupController{
-    public $db;
+class EditUser{
+    private $db;
 
-    public function __construct() {
+
+
+    public function __construct(){
         $this->db = new DatabaseConnection();
     }
 
-    public function create() {
+
+
+    public function update() {
         if (isset($_POST["name"]) && isset($_POST["age"]) && isset($_POST["address"]) &&
         isset($_POST["email"])  && isset($_POST["password"]) && isset($_POST["confirm-password"])) {
         
             // && isset($_POST["gender-select"]) && isset($_POST["image"])
-
+        $id = $_POST['id'];
         $name = $_POST["name"];
         $age = $_POST["age"];
         $address = $_POST["address"];
@@ -43,19 +48,19 @@ class SignupController{
 
             // db connection
             try {
-                $sql = "INSERT INTO users(name, age, address, email, gender, image, password) VALUES ('$name', '$age', '$address', '$email', '$gender', '$folder', '$passwordHash')";
-                $result = mysqli_query($this->db->connection(), $sql);
+                $update = new User();
+                $update->updateUser($id,$name,$age, $address,$folder,$email,$gender,$passwordHash);
 
-                if ($result) {
-                    echo "Registration successful"; // Debugging
+                if (true) {
+                    echo "update successful"; // Debugging
                     header('Location: ../../views/login.php');
                     
                 } else {
-                    echo "Registration failed"; // Debugging
+                    echo "update failed"; // Debugging
                     // Handle the error or display an error message
                 }
             } catch (Exception $e) {
-                echo "User registration failed !! " . $e->getMessage();
+                echo "User update failed !! " . $e->getMessage();
                 return false;
             }
         } else {
@@ -66,48 +71,11 @@ class SignupController{
     }
     }
 
+
+    
+    
+
 }
 
 
-// namespace Asis\OopProject\Controller;
-// use Asis\OopProject\Controller;
-// use Asis\OopProject\Database\DatabaseConnection;
-// use Exception;
-
-// require '../../vendor/autoload.php';
-
-
-
-// class SignupController extends DatabaseConnection{
-    
-
-//     public function registerUser($name, $age, $address, $email, $gender, $password){
-       
-//         try{
-            
-//             $sql = "INSERT INTO users(name,age,address,email,gender,password) values('$name', '$age', '$address', '$email', '$gender', '$password')";
-
-//             $result = mysqli_query($this->connection(),$sql);
-
-//             if($result){
-//                 return true;
-//             }else{
-//                 return false;
-//             }
-
-            
-
-//         }catch(Exception $e){
-//             echo "User registration failed !!". $e->getMessage();
-//             return false;
-
-        
-//         }
-//     }
-
-    
-
-
-    
-
-// }
+?>

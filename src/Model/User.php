@@ -27,9 +27,9 @@ class User extends DatabaseConnection{
         return $users;
     }
 
-    public function updateUser($id,$name, $age, $address, $image, $email, $gender, $password){
+    public function updateUser($id,$name, $age, $address, $email, $gender){
         $sql = "UPDATE users SET name='$name', age='$age', address='$address',
-        image='$image', email='$email', gender='$gender', password='$password' WHERE id='$id' ";
+        email='$email', gender='$gender' WHERE id='$id' ";
 
         $result = mysqli_query($this->connection(), $sql);
         if($result){
@@ -39,6 +39,27 @@ class User extends DatabaseConnection{
         }
 
 
+    }
+
+    public function updatePassword($id, $password){
+        $sql = "UPDATE users SET password='$password' WHERE id='$id'";
+        $result = mysqli_query($this->connection(), $sql);
+        if($result){
+            return true;
+
+        }else{
+            return false;
+        }
+    }
+
+    public function updateImage($id, $image){
+        $sql ="UPDATE users SET image='$image' WHERE id='$id'";
+        $result = mysqli_query($this->connection(), $sql);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

@@ -21,6 +21,8 @@ if($_SESSION){
         $email = $_SESSION['email'];
         
     }
+}else{
+    echo "Please log in again!";
 }
 
 
@@ -52,7 +54,7 @@ $users = $user->all($email);
                         <?php foreach ($users as $user) { ?>
                             <div class="text-center">
                                 
-                                <img src="<?php echo $user['image'] ? '../assets/imgs/' .$user['image'] : '../assets/imgs/person.png'; ?>" alt="image" class="img-fluid">
+                                <img src="<?php echo $user['image'] ? '../assets/imgs/' .$user['image'] : '../assets/imgs/person.png'; ?>" alt="image" class="img-fluid" style="height: 100px; width:120px; border-radius:15px;"> <br><br>
                                 
                             </div>
 

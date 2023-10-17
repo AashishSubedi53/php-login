@@ -21,10 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["signup-btn"])){
 }
 
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update-btn"])){
+    
     $editUser = new EditUser();
     $editUser->update();
+    $editUser->changeProfile();
+
+    
     
 }
+
 
 
 

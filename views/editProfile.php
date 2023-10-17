@@ -31,6 +31,11 @@ $users = $user->all($email);
 
 <body>
     <div class="container">
+        <form class="form-group" action="../src/Controller/web.php" method="post">
+            <label for="change-profile">Profile Picture</label>
+            <input id="change-profile" type="file" name="change-profile">
+            <input type="hidden" name="id" value="<?php foreach($users as $user){echo $user['id'];} ?>">
+        </form>
         
         <form class="sign-up" action="../src/Controller/web.php" method="POST" enctype="multipart/form-data">
             <?php foreach($users as $user){?>
@@ -69,13 +74,7 @@ $users = $user->all($email);
                 
                 <input type="radio"  value="Female" name="gender-select"
                  <?php echo ($user['gender'] == 1) ? 'checked': ''; ?>>Female
-            </div>
-
-            <div class="form-group">
-                <label for="image">Profile Image:</label>
-                <input type="file" id="image" name="image"
-                value="<?php echo '../assets/imgs/'.$user['image']; ?>">
-            </div>
+            </div>          
 
 
             <div class="form-group">

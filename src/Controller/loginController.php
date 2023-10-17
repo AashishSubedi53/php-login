@@ -40,6 +40,7 @@ class LoginController {
                 session_start();
                 $_SESSION['logged_in'] = true;
                 $_SESSION["email"] = $_POST['email'];
+                $_SESSION["password"] = $_POST['password'];
                 header("Location: ../../views/profile.php");
                 // echo $this->email;
     

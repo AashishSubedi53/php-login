@@ -74,8 +74,7 @@ $users = $user->all($email);
             <div class="form-group">
                 <label for="image">Profile Image:</label>
                 <input type="file" id="image" name="image"
-                value="<?php echo $user['image']; ?>">
-                <img src="<?php echo $user['image']; ?>" alt="Profile image">
+                value="<?php echo '../assets/imgs/'.$user['image']; ?>">
             </div>
 
 

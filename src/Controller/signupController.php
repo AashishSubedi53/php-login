@@ -43,7 +43,7 @@ class SignupController{
 
             // db connection
             try {
-                $sql = "INSERT INTO users(name, age, address, email, gender, image, password) VALUES ('$name', '$age', '$address', '$email', '$gender', '$folder', '$passwordHash')";
+                $sql = "INSERT INTO users(name, age, address, email, gender, image, password) VALUES ('$name', '$age', '$address', '$email', '$gender', '$filename', '$passwordHash')";
                 $result = mysqli_query($this->db->connection(), $sql);
 
                 if ($result) {

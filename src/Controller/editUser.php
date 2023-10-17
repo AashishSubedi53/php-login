@@ -49,7 +49,7 @@ class EditUser{
             // db connection
             try {
                 $update = new User();
-                $update->updateUser($id,$name,$age, $address,$folder,$email,$gender,$passwordHash);
+                $update->updateUser($id,$name,$age, $address,$filename,$email,$gender,$passwordHash);
 
                 if (true) {
                     echo "update successful"; // Debugging

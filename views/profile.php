@@ -52,7 +52,7 @@ $users = $user->all($email);
                         <?php foreach ($users as $user) { ?>
                             <div class="text-center">
                                 
-                                <img src="<?php echo  $user['image']; ?>" alt="image" class="img-fluid">
+                                <img src="<?php echo $user['image'] ? '../assets/imgs/' .$user['image'] : '../assets/imgs/person.png'; ?>" alt="image" class="img-fluid">
                                 
                             </div>
 
